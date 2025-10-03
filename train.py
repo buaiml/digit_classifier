@@ -42,4 +42,13 @@ if __name__ == "__main__":
 
     model = BasicFeedForward().to(device)
     optimizer = optim.Adam(model.parameters(), lr=0.001)
-    
+    criterion = nn.CrossEntropyLoss()
+
+    epochs = 5
+    for epoch in range(epochs):
+        total_loss = 0
+        correct = 0
+        total = 0
+
+        for images, labels in train_loader:
+            
