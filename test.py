@@ -48,7 +48,7 @@ def draw_ui():
     if model_loaded:
         with torch.no_grad():
             # Apply Gaussian blur to smooth the drawing
-            smoothed_grid = gaussian_filter(grid, sigma=0.5)
+            smoothed_grid = gaussian_filter(grid, sigma=1.0)
 
             # Normalize using MNIST statistics (same as training)
             input_tensor = torch.from_numpy(smoothed_grid.flatten()).unsqueeze(0)
@@ -102,7 +102,7 @@ def paint_cell(pos, erase=False):
                     for dy in [-1, 0, 1]:
                         nx, ny = grid_x + dx, grid_y + dy
                         if 0 <= nx < GRID_SIZE and 0 <= ny < GRID_SIZE:
-                            grid[nx, ny] = max(grid[nx, ny], 0.5 if (dx != 0 or dy != 0) else 1)
+                            grid[nx, ny] = max(grid[nx, ny], 0.8 if (dx != 0 or dy != 0) else 1)
 
 def clear_grid():
     global grid
