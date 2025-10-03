@@ -1,0 +1,7 @@
+torch
+torchvision
+pygame
+numpy>=2.0.0
+scipy
+Pillow>=10.0.0
+setuptools>=65.0.0
